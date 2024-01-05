@@ -9,6 +9,9 @@ connectToMongoose()
 app.use(express.json());
 app.use('/api/users/auth',require('./routes/auth')); 
 app.use('/api/users/notes',require('./routes/notes'));
+app.get("/",(req, res) =>{
+    res.send('server is running')
+})
 
 
 app.listen(port,() => {
