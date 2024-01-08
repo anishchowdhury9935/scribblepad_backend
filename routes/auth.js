@@ -46,8 +46,7 @@ router.post('/CreateUser', [
 // endpoint for login user "http://127.0.0.1:5000/api/users/auth/Login"
 
 router.post('/Login', [
-    body('email', 'Enter a valid email').isEmail(),
-    body('password', 'password can not be blank').isLength({ min: 8 })
+    body('email', 'Enter a valid email').isEmail()
 ], async (req, res) => {
     // Finds the validation errors
     const errors = validationResult(req);
@@ -81,7 +80,6 @@ router.get('/getUser', fetchuser, async (req, res) => {
         const user = await User_data.findById(userId).select("-password")
         res.send(user)
     } catch (error) {
-        console.error(error.message);
         res.status(500).send("Internal Server Error");
     }
 
