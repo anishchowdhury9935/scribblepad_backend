@@ -33,7 +33,7 @@ router.post("/addnotes", fetchuser, [
                 title, description, tag, user: req.user
             })
             const savedNote = await note.save()
-            res.json({ savedNote })
+            res.json('note added')
         } catch (error) {
             console.error(error.message);
             res.status(500).send("Internal Server Error");
