@@ -13,7 +13,7 @@ const JWT_SECRET = 'anish9982';
 router.post('/CreateUser', [
     body('email', 'Enter a valid email').isEmail(),
     body('name', 'Enter a valid name').isLength({ min: 3 }),
-    body('password', 'Enter at least 8 lenght of password').isLength({ min: 8 })
+    body('password', 'password should atleast 8 characters').isLength({ min: 8 })
 ], async (req, res) => {
     // Finds the validation errors
     const errors = validationResult(req);
