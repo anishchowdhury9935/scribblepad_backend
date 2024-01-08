@@ -46,7 +46,8 @@ router.post('/CreateUser', [
 // endpoint for login user "http://127.0.0.1:5000/api/users/auth/Login"
 
 router.post('/Login', [
-    body('email', 'Enter a valid email').isEmail()
+    body('email', 'Enter a valid email').isEmail(),
+    body('password', 'password can not be blank').isLength({ min: 1 })
 ], async (req, res) => {
     // Finds the validation errors
     const errors = validationResult(req);
