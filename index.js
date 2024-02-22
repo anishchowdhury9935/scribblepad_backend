@@ -4,12 +4,7 @@ const app = express();
 const port = process.env.PORT || 5000
 // const port = 5000
 const connectToMongoose = require('./db.js')
-const allowedOrigins = ['https://scribblepad-9935.vercel.app'];
-const corsOptions = {
-  origin: allowedOrigins,
-  optionsSuccessStatus: 200
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 connectToMongoose()
 app.use(express.json());
